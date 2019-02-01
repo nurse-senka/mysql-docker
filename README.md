@@ -1,11 +1,11 @@
 # mysql-docker
-[![dockeri.co](https://dockeri.co/image/nursesenka/mysql-docker)](https://hub.docker.com/r/nursesenka/mysql-docker)
+[![dockeri.co](https://dockeri.co/image/nursesenka/mysql)](https://hub.docker.com/r/nursesenka/mysql)
 
 MySQL用のDockerfileを管理する（利用用途は開発限定）
 
 ## Docker Hub
 
-https://cloud.docker.com/u/nursesenka/repository/docker/nursesenka/mysql-docker
+https://cloud.docker.com/u/nursesenka/repository/registry-1.docker.io/nursesenka/mysql
 
 ## Badge
 以下で作成出来ます。
