@@ -3,6 +3,10 @@
 
 MySQL用のDockerfileを管理する（利用用途は開発限定）
 
+Aurora MySQL 2.x のエンジンのバージョンに合わせた`mysql:5.7.12`をベースとしたイメージです。
+
+utf8mb4を扱う設定をしています。
+
 ## Docker Hub
 
 https://cloud.docker.com/u/nursesenka/repository/registry-1.docker.io/nursesenka/mysql
@@ -14,7 +18,30 @@ https://dockeri.co/
 
 ## 検証手順
 
-※ 後で記載します。
+ビルドが実行できることを確認してください。
+
+```
+docker build -t nursesenka/mysql-docker .
+```
+
+`docker images`を実行し、`nursesenka/mysql-docker`というイメージが作成されていることを確認してください。
+```
+REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+nursesenka/mysql-docker            latest              bce6c4936a84        2 minutes ago       378MB
+```
+
+下記を実行し、コンテナが起動できることを確認してください。
+確認のため`MYSQL_ROOT_PASSWORD`に`secret`を設定しています。
+```
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=secret -d -p 3306:3306 nursesenka/mysql-docker
+```
+
+`docker exec -it mysql sh`を実行し、コンテナに接続し下記を実行します。
+
+mysqlに接続できることを確認してください。パスワードは`MYSQL_ROOT_PASSWORD`で設定した値です。
+```
+mysql -u root -p mysql
+```
 
 ## 自動Buildについて
 
